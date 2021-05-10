@@ -10,7 +10,7 @@ Sorter::~Sorter()
     
 }
 
-void Sorter::BubbleSort(double* numbers, int numbersSize)
+void Sorter::BubbleSort(double *numbers, int numbersSize)
 {
     for (int i = 0; i < numbersSize - 1; ++i)
     {
@@ -23,5 +23,30 @@ void Sorter::BubbleSort(double* numbers, int numbersSize)
                 numbers[j + 1] = temp;
             }
         }
+    }
+}
+
+void Sorter::SelectionSort(double *numbers, int numbersSize)
+{
+    int i = 0;
+    int j = 0;
+    int indexSmallest = 0;
+    double temp = 0;
+
+    for (i = 0; i < numbersSize - 1; ++i)
+    {
+        indexSmallest = i;
+        
+        for (j = i + 1; j < numbersSize; ++j)
+        {
+            if (numbers[j] < numbers[indexSmallest])
+            {
+                indexSmallest = j;
+            }
+        }
+
+        temp = numbers[i];
+        numbers[i] = numbers[indexSmallest];
+        numbers[indexSmallest] = temp;
     }
 }

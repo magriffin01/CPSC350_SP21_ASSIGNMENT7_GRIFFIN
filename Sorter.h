@@ -11,7 +11,8 @@ class Sorter
         Sorter();
         ~Sorter();
 
-        void BubbleSort(double* numbers, int numbersSize);
+        void BubbleSort(double *numbers, int numbersSize);
+        void SelectionSort(double *numbers, int numbersSize);
 
     private:
 

@@ -9,10 +9,10 @@ int main(int argc, char** argv)
     FileProcessor *fileProcessor = new FileProcessor();
     fileProcessor->processFile(50, "test.txt");
 
-    double* newArray = fileProcessor->getArrayToBeSorted();
+    double *newArray = fileProcessor->getArrayToBeSorted();
 
     Sorter *sorter = new Sorter();
-    sorter->BubbleSort(newArray, 50);
+    sorter->SelectionSort(newArray, 50);
 
     for (int i = 0; i < 50; ++i)
     {
