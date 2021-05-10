@@ -8,7 +8,10 @@ using namespace std;
 class Sorter
 {
     public:
+        Sorter();
+        ~Sorter();
 
+        void BubbleSort(double* numbers, int numbersSize);
 
     private:
 
