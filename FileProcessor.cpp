@@ -54,9 +54,6 @@ void FileProcessor::readInputFile()
     {
         getline(inputStream, doubleToBeInserted);
         arrayToBeSorted[i] = stod(doubleToBeInserted);
-
-        // testing
-        cout << arrayToBeSorted[i] << endl;
     }
 }
 

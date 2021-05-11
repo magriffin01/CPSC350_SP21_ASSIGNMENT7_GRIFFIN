@@ -7,38 +7,41 @@ using namespace std;
 int main(int argc, char** argv)
 {
     FileProcessor *fileProcessor = new FileProcessor();
-    fileProcessor->processFile(50, "test.txt");
+    fileProcessor->processFile(200, "test.txt");
 
     double *newArray = fileProcessor->getArrayToBeSorted();
 
     // For ShellSort
-    int i = 1;
+    int count = 1;
     int result = 0;
-    while (result < 50)
+    while (result < 200)
     {
-        result = pow(2.0, i);
-        if (result > 50)
+        result = pow(2.0, count);
+        if (result > 200)
         {
-            cout << i << endl;
             break;
         }
-        ++i;
-        cout << result-1 << endl;
+        ++count;
+    }
+    int size = count - 1;
+    int *gapValues = new int[size];
+    
+    for (int i = 0; i < size; ++i)
+    {
+        gapValues[i] = pow(2.0, count - 1) - 1;
+        --count;
     }
 
-    int *gapValues = new int[i-1];
-    
+    Sorter *sorter = new Sorter();
+    sorter->ShellSort(newArray, 200, gapValues, size);
 
-    // Sorter *sorter = new Sorter();
-    // sorter->MergeSort(newArray, 0, 49);
-
-    // for (int i = 0; i < 50; ++i)
-    // {
-    //     cout << i << ": " << newArray[i] << endl;
-    // }
+    for (int i = 0; i < 100; ++i)
+    {
+        cout << i << ": " << newArray[i] << endl;
+    }
 
     delete gapValues;
-    // delete sorter;
+    delete sorter;
     delete fileProcessor;
     return 0;
 }
