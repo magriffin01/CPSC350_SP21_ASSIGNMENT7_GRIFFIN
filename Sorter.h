@@ -19,7 +19,7 @@ class Sorter
 
     private:
         int Partition(double *numbers, int lowIndex, int highIndex);
-        void Merge(double *numbers, int i, int j, int k);
+        void Merge(double *numbers, int leftFirstIndex, int leftLastIndex, int rightLastIndex);
 
 };
 

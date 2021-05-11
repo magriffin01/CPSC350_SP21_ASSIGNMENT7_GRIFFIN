@@ -83,24 +83,27 @@ void Sorter::Quicksort(double *numbers, int lowIndex, int highIndex)
     Quicksort(numbers, lowEndIndex + 1, highIndex);
 }
 
-void Sorter::Merge(double *numbers, int i, int j, int k) {
-   int mergedSize = k - i + 1;                // Size of merged partition
+void Sorter::Merge(double *numbers, int leftFirstIndex, int leftLastIndex, int rightLastIndex) {
+   int mergedSize = rightLastIndex - leftFirstIndex + 1;                // Size of merged partition
    int mergePos = 0;                          // Position to insert merged number
    int leftPos = 0;                           // Position of elements in left partition
    int rightPos = 0;                          // Position of elements in right partition
    double *mergedNumbers = new double[mergedSize];   // Dynamically allocates temporary array
                                          // for merged numbers
    
-   leftPos = i;                           // Initialize left partition position
-   rightPos = j + 1;                      // Initialize right partition position
+   leftPos = leftFirstIndex;                           // Initialize left partition position
+   rightPos = leftLastIndex + 1;                      // Initialize right partition position
    
    // Add smallest element from left or right partition to merged numbers
-   while (leftPos <= j && rightPos <= k) {
-      if (numbers[leftPos] <= numbers[rightPos]) {
+   while (leftPos <= leftLastIndex && rightPos <= rightLastIndex) 
+   {
+      if (numbers[leftPos] <= numbers[rightPos]) 
+      {
          mergedNumbers[mergePos] = numbers[leftPos];
          ++leftPos;
-      }
-      else {
+    }
+      else
+      {
          mergedNumbers[mergePos] = numbers[rightPos];
          ++rightPos;
          
@@ -109,22 +112,25 @@ void Sorter::Merge(double *numbers, int i, int j, int k) {
    }
    
    // If left partition is not empty, add remaining elements to merged numbers
-   while (leftPos <= j) {
+   while (leftPos <= leftLastIndex) 
+   {
       mergedNumbers[mergePos] = numbers[leftPos];
       ++leftPos;
       ++mergePos;
    }
    
    // If right partition is not empty, add remaining elements to merged numbers
-   while (rightPos <= k) {
+   while (rightPos <= rightLastIndex) 
+   {
       mergedNumbers[mergePos] = numbers[rightPos];
       ++rightPos;
       ++mergePos;
    }
    
    // Copy merge number back to numbers
-   for (mergePos = 0; mergePos < mergedSize; ++mergePos) {
-      numbers[i + mergePos] = mergedNumbers[mergePos];
+   for (mergePos = 0; mergePos < mergedSize; ++mergePos) 
+   {
+      numbers[leftFirstIndex + mergePos] = mergedNumbers[mergePos];
    }
 
    delete mergedNumbers;
