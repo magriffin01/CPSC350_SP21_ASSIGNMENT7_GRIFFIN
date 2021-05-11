@@ -12,13 +12,13 @@ int main(int argc, char** argv)
     double *newArray = fileProcessor->getArrayToBeSorted();
 
     Sorter *sorter = new Sorter();
-    sorter->Quicksort(newArray, 0, 49);
+    sorter->MergeSort(newArray, 0, 49);
 
     for (int i = 0; i < 50; ++i)
     {
-        cout << newArray[i] << endl;
+        cout << i << ": " << newArray[i] << endl;
     }
-
+    
     delete sorter;
     delete fileProcessor;
     return 0;
