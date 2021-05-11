@@ -15,7 +15,7 @@ SOURCES := *.cpp
 #stuff you don't need to worry about
 INCLUDES := -I ../include
 EXT := out
-CC := g++
+CC := g++ --std=c++11
 
 all:
 	$(CC) $(INCLUDES) $(SOURCES) -g -o $(EXECUTABLE).$(EXT)
