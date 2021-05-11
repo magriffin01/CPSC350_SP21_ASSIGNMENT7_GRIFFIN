@@ -14,9 +14,10 @@ class Sorter
         void BubbleSort(double *numbers, int numbersSize);
         void SelectionSort(double *numbers, int numbersSize);
         void InsertionSort(double *numbers, int numbersSize);
+        void Quicksort(double *numbers, int lowIndex, int highIndex);
 
     private:
-
+        int Partition(double *numbers, int lowIndex, int highIndex);
 
 };
 

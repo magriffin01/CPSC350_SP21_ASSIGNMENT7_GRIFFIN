@@ -69,3 +69,53 @@ void Sorter::InsertionSort(double *numbers, int numbersSize)
         }
     }
 }
+
+void Sorter::Quicksort(double *numbers, int lowIndex, int highIndex)
+{
+    if (lowIndex >= highIndex)
+    {
+        return;
+    }
+
+    int lowEndIndex = Partition(numbers, lowIndex, highIndex);
+
+    Quicksort(numbers, lowIndex, lowEndIndex);
+    Quicksort(numbers, lowEndIndex + 1, highIndex);
+}
+
+int Sorter::Partition(double *numbers, int lowIndex, int highIndex)
+{
+    int midpoint = lowIndex + (highIndex - lowIndex) / 2;
+    double pivot = numbers[midpoint];
+
+    bool done = false;
+
+    while (!done)
+    {
+        while (numbers[lowIndex] < pivot)
+        {
+            lowIndex += 1;
+        }
+
+        while (pivot < numbers[highIndex])
+        {
+            highIndex -= 1;
+        }
+
+        if (lowIndex >= highIndex)
+        {
+            done = true;
+        }
+        else
+        {
+            double temp = numbers[lowIndex];
+            numbers[lowIndex] = numbers[highIndex];
+            numbers[highIndex] = temp;
+
+            lowIndex += 1;
+            highIndex -= 1;
+        }
+    }
+
+    return highIndex;
+}
