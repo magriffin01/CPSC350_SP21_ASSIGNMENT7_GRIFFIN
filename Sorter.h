@@ -13,6 +13,7 @@ class Sorter
 
         void BubbleSort(double *numbers, int numbersSize);
         void SelectionSort(double *numbers, int numbersSize);
+        void InsertionSort(double *numbers, int numbersSize);
 
     private:
 

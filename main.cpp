@@ -12,7 +12,7 @@ int main(int argc, char** argv)
     double *newArray = fileProcessor->getArrayToBeSorted();
 
     Sorter *sorter = new Sorter();
-    sorter->SelectionSort(newArray, 50);
+    sorter->InsertionSort(newArray, 50);
 
     for (int i = 0; i < 50; ++i)
     {

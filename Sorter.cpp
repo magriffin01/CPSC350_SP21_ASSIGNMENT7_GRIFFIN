@@ -50,3 +50,22 @@ void Sorter::SelectionSort(double *numbers, int numbersSize)
         numbers[indexSmallest] = temp;
     }
 }
+
+void Sorter::InsertionSort(double *numbers, int numbersSize)
+{
+    int i = 0;
+    int j = 0;
+    double temp = 0;
+
+    for (i = 1; i < numbersSize; ++i)
+    {
+        j = i;
+        while ((j > 0) && (numbers[j] < numbers[j - 1]))
+        {
+            temp = numbers[j];
+            numbers[j] = numbers[j - 1];
+            numbers[j - 1] = temp;
+            --j;
+        }
+    }
+}
