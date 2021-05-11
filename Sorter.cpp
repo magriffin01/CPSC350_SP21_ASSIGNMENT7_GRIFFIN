@@ -83,6 +83,43 @@ void Sorter::Quicksort(double *numbers, int lowIndex, int highIndex)
     Quicksort(numbers, lowEndIndex + 1, highIndex);
 }
 
+int Sorter::Partition(double *numbers, int lowIndex, int highIndex)
+{
+    int midpoint = lowIndex + (highIndex - lowIndex) / 2;
+    double pivot = numbers[midpoint];
+
+    bool done = false;
+
+    while (!done)
+    {
+        while (numbers[lowIndex] < pivot)
+        {
+            lowIndex += 1;
+        }
+
+        while (pivot < numbers[highIndex])
+        {
+            highIndex -= 1;
+        }
+
+        if (lowIndex >= highIndex)
+        {
+            done = true;
+        }
+        else
+        {
+            double temp = numbers[lowIndex];
+            numbers[lowIndex] = numbers[highIndex];
+            numbers[highIndex] = temp;
+
+            lowIndex += 1;
+            highIndex -= 1;
+        }
+    }
+
+    return highIndex;
+}
+
 void Sorter::Merge(double *numbers, int leftFirstIndex, int leftLastIndex, int rightLastIndex) {
    int mergedSize = rightLastIndex - leftFirstIndex + 1;                // Size of merged partition
    int mergePos = 0;                          // Position to insert merged number
@@ -153,39 +190,35 @@ void Sorter::MergeSort(double *numbers, int lowIndex, int highIndex)
     }
 }
 
-int Sorter::Partition(double *numbers, int lowIndex, int highIndex)
+void Sorter::InsertionSortInterleaved(double *numbers, int numbersSize, int startIndex, int gap)
 {
-    int midpoint = lowIndex + (highIndex - lowIndex) / 2;
-    double pivot = numbers[midpoint];
-
-    bool done = false;
-
-    while (!done)
+    int i = 0;
+    int j = 0;
+    double temp = 0; // Temporary variable for swap
+    
+    for (i = startIndex + gap; i < numbersSize; i = i + gap)
     {
-        while (numbers[lowIndex] < pivot)
+        j = i;
+        
+        while ((j - gap >= startIndex) && (numbers[j] < numbers[j - gap]))
         {
-            lowIndex += 1;
-        }
-
-        while (pivot < numbers[highIndex])
-        {
-            highIndex -= 1;
-        }
-
-        if (lowIndex >= highIndex)
-        {
-            done = true;
-        }
-        else
-        {
-            double temp = numbers[lowIndex];
-            numbers[lowIndex] = numbers[highIndex];
-            numbers[highIndex] = temp;
-
-            lowIndex += 1;
-            highIndex -= 1;
+            temp = numbers[j];
+            numbers[j] = numbers[j - gap];
+            numbers[j- gap] = temp;
+            j = j - gap;
         }
     }
+}
 
-    return highIndex;
+void Sorter::ShellSort(double *numbers, int numbersSize, int *gapValues, int gapValuesSize)
+{
+    for (int j = 0; j < gapValuesSize; ++j)
+    {
+        int gapValue = gapValues[j];
+        
+        for (int i = 0; i < gapValue; ++i)
+        {
+            InsertionSortInterleaved(numbers, numbersSize, i, gapValue);
+        }
+    }
 }
