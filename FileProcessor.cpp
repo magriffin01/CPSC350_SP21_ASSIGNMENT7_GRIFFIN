@@ -107,6 +107,6 @@ double FileProcessor::generateRandomDouble()
 {
     random_device rand;
     default_random_engine eng(rand());
-    uniform_real_distribution<double> distr(0, 100);
+    uniform_real_distribution<double> distr(0, 500000);
     return distr(eng);
 }
