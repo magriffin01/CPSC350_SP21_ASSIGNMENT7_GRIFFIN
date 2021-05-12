@@ -1,3 +1,11 @@
+/*
+# Name: Mark Griffin
+# ID Number: 2340502
+# Email: magriffin@chapman.edu
+# Course: CPSC350-01
+# Assignment: Assignment 7
+*/
+
 #ifndef FILEPROCESSOR_H
 #define FILEPROCESSOR_H
 
