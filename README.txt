@@ -13,8 +13,7 @@ d. Sorter.cpp
 e. Sorter.h
 
 3. A DESCRIPTION OF ANY KNOWN COMPILE OR RUNTIME ERRORS, CODE LIMITATIONS, OR DEVIATIONS FROM ASSIGNMENT SPECIFICATIONS (IF APPLICABLE)
-a. The execution time of the sorting algorithm is outputted to the console, as opposed to display time stamps at start and end, as 
-    we covered that in class.
+a. The execution time of the sorting algorithm is outputted to the console, as opposed to display time stamps at start and end, as we covered that in class.
 
 4. A LIST OF ALL REFERENCES USED TO COMPLETE THIS ASSIGNMENT, INCLUDING PEERS (IF APPLICABLE)
 a. Zybook C++ textbook
