@@ -15,12 +15,20 @@ double* FileProcessor::getArrayToBeSorted()
     return arrayToBeSorted;
 }
 
-void FileProcessor::processFile(int numberOfDoubles, string fileName)
+int FileProcessor::getArraySize()
+{
+    return stoi(numberOfDoubles);
+}
+
+void FileProcessor::createFile(int numberOfDoubles, string fileName)
 {
     openOutputFile(fileName);
     writeOutputFile(numberOfDoubles);
     closeOutputFile(fileName);
+}
 
+void FileProcessor::readFile(string fileName)
+{
     openInputFile(fileName);
     readInputFile();
     closeInputFile(fileName);
@@ -44,7 +52,6 @@ void FileProcessor::openInputFile(string inputFile)
 
 void FileProcessor::readInputFile()
 {
-    string numberOfDoubles;
     getline(inputStream, numberOfDoubles);
     arrayToBeSorted = new double[stoi(numberOfDoubles)];
 

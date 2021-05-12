@@ -15,8 +15,10 @@ class FileProcessor
         FileProcessor();
         ~FileProcessor();
 
-        void processFile(int numberOfDoubles, string fileName);
+        void createFile(int numberOfDoubles, string fileName);
+        void readFile(string fileName);
         double* getArrayToBeSorted();
+        int getArraySize();
 
     private:
         void openInputFile(string inputFile);
@@ -30,6 +32,7 @@ class FileProcessor
         ifstream inputStream;
         ofstream outputStream;
         double *arrayToBeSorted;
+        string numberOfDoubles;
 };
 
 #endif
