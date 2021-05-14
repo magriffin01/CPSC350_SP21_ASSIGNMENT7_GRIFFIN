@@ -22,7 +22,8 @@ c. https://docs.microsoft.com/en-us/cpp/?view=msvc-160
 d. https://www.geeksforgeeks.org/
 
 5. INSTRUCTIONS FOR RUNNING THIS ASSIGNMENT
-a. Run "make all"
-b. Then run "./assignment7.out" while adding either "create" or "sort" as a command line parameter for desired program action.
+a. Uncomment the sorting algorithm you wish to run
+b. Run "make all"
+c. Then run "./assignment7.out" while adding either "create" or "sort" as a command line parameter for desired program action.
     i. For the mode "create", follow that command-line parameter with the text file for the doubles, followed by the amount of doubles to create.
     ii. For the mode "sort", follow that command-line paramter with the text file that contains the doubles.
